@@ -21,6 +21,7 @@ const configCommon = {
     ...eslintPluginPrettier.configs.recommended.rules,
     ...eslintConfigPrettier.rules,
     'no-var': 'error',
+    'no-unused-vars': 'warn',
   },
 };
 
@@ -54,6 +55,25 @@ export default defineConfig(
     languageOptions: {
       ...configCommon.languageOptions,
       globals: {
+        ...globals.node,
+      },
+    },
+    rules: {
+      ...configCommon.rules,
+      // 自定义规则
+    },
+  },
+  // Utils
+  {
+    ...configCommon,
+    files: ['packages/utils/**/*.{ts,js,tsx,jsx}'],
+    plugins: {
+      prettier: eslintPluginPrettier,
+    },
+    languageOptions: {
+      ...configCommon.languageOptions,
+      globals: {
+        ...globals.browser,
         ...globals.node,
       },
     },
