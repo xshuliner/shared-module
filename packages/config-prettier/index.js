@@ -23,6 +23,12 @@ const config = {
   embeddedLanguageFormatting: 'auto', // 自动格式化嵌入的语言
   singleAttributePerLine: false, // 每个属性一行（现代前端项目推荐为true）
 
+  endOfLine: 'lf',
+  importOrder: ['^react$', '^next', '^@/(.*)$', '^[./]'],
+  importOrderSeparation: false,
+  importOrderSortSpecifiers: true,
+  plugins: ['prettier-plugin-tailwindcss', 'prettier-plugin-organize-imports'],
+
   // 文件类型特定配置
   overrides: [
     {
